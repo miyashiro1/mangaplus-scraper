@@ -34,8 +34,6 @@ def mangaPlus():
         links.append(url + link['data-src'][36:42]+'s'+link['data-src'][42:50])
 
     names = [name.find('p').text for name in manga_name]
-    # for name in manga_name:
-    #     names.append(name.find('p').text)
 
     # iterate through the 2 lists and create a dictionary like <manga title: link>
     for name, link in zip(names, links):
