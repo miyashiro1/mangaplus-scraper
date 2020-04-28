@@ -47,8 +47,5 @@ def top10():
             if len(resultado) != 11:
                 resultado.append(f'{name}: {url + link}')
 
-    # print(final)
     print(f'--- {time.time() - start_time} seconds ---')
     driver.quit()
-
-# print(top10())
