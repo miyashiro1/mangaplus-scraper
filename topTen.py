@@ -2,17 +2,17 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
 
-nomes = []
-resultado = []
+n_names = []
+results = []
 links_manga = []
 dic_manga = {}
 
 
 def top10():
-    global nomes
+    global n_names
     global links_manga
     global dic_manga
-    global resultado
+    global results
 
     start_time = time.time()
     # specify the url
@@ -31,21 +31,21 @@ def top10():
     mangas = soup.find('div', {'class': 'HotTitles-module_gridContainer_2jaSS'})
 
     for manga in top3_mangas:
-        nomes.append(manga.find('p').text)
+        n_names.append(manga.find('p').text)
         links_manga.append(manga.get('href'))
 
     for manga in mangas:
-        nomes.append(manga.find('p').text)
+        n_names.append(manga.find('p').text)
         links_manga.append(manga.get('href'))
 
-    for name, link in zip(nomes, links_manga):
+    for name, link in zip(n_names, links_manga):
         if name.lower() in dic_manga:
             continue
         elif int(link[-6]) == 2:
             continue
         else:
-            if len(resultado) != 11:
-                resultado.append(f'{name}: {url + link}')
+            if len(results) != 11:
+                results.append(f'{name}: {url + link}')
 
     print(f'--- {time.time() - start_time} seconds ---')
     driver.quit()
