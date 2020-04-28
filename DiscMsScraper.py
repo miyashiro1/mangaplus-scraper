@@ -1,6 +1,6 @@
 from discord.ext import commands
 from allMangas import mangaPlus, names, dic
-from topTen import top10, resultado
+from topTen import top10, results
 
 """names, final, dic  are global variables from allMangas.py"""
 
@@ -39,7 +39,7 @@ async def commands(ctx):
 
 @bot.command()
 async def top10(ctx):
-    await ctx.send('\n'.join(resultado))
+    await ctx.send('\n'.join(results))
 
 @bot.command()
 async def names(ctx):
@@ -52,4 +52,6 @@ async def names(ctx):
 async def on_command_error(ctx, error):
     await ctx.send(f'{error}, use **!commands** to see commands.')
 
-bot.run(token)
+if __name__ == '__main__':
+    import config
+    bot.run(config.token)
