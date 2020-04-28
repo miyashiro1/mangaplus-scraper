@@ -52,4 +52,6 @@ async def names(ctx):
 async def on_command_error(ctx, error):
     await ctx.send(f'{error}, use **!commands** to see commands.')
 
-bot.run(token)
+if __name__ == '__main__':
+    import config
+    bot.run(config.token)
