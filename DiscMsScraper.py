@@ -3,14 +3,6 @@ from allMangas import mangaPlus, names, dic
 from topTen import top10, results
 
 """names, final, dic  are global variables from allMangas.py"""
-
-def read_token():
-    with open("token.txt", 'r') as f:
-        lines = f.readlines()
-        return lines[0].strip()
-
-token = read_token()
-
 mangaPlus()
 top10()
 
