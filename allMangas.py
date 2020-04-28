@@ -17,7 +17,7 @@ def mangaPlus():
     urlpage = r'https://mangaplus.shueisha.co.jp/manga_list/all'
     url = 'https://mangaplus.shueisha.co.jp'
     # run firefox webdriver from executable path of your choice
-    driver = webdriver.PhantomJS()
+    driver = webdriver.PhantomJS(executable_path= r'phantomjs-2.1.1-windows/bin/phantomjs.exe')
     # to go web page
     driver.get(urlpage)
 
