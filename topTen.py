@@ -19,15 +19,13 @@ def top10():
     urlpage = r'https://mangaplus.shueisha.co.jp/manga_list/hot'
     url = 'https://mangaplus.shueisha.co.jp'
     # run firefox webdriver from executable path of your choice
-    driver = webdriver.Firefox(executable_path= r'geckodriver/geckodriver.exe')
+    driver = webdriver.PhantomJS(executable_path=r'H:\phantomjs-2.1.1-windows\bin\phantomjs.exe')
     driver.get(urlpage)  # get web page
 
     time.sleep(2)
 
     html = driver.page_source
     soup = BeautifulSoup(html, 'html.parser')
-
-    # print(soup)
 
     top3_mangas = soup.find('div', {'class': 'HotTitles-module_flexContainer_2sQEA'})
     mangas = soup.find('div', {'class': 'HotTitles-module_gridContainer_2jaSS'})
