@@ -19,7 +19,7 @@ def top10():
     urlpage = r'https://mangaplus.shueisha.co.jp/manga_list/hot'
     url = 'https://mangaplus.shueisha.co.jp'
     # run firefox webdriver from executable path of your choice
-    driver = webdriver.Firefox(executable_path= r'H:\geckodriver\geckodriver.exe')
+    driver = webdriver.Firefox(executable_path= r'geckodriver/geckodriver.exe')
     driver.get(urlpage)  # get web page
 
     time.sleep(2)

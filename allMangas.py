@@ -17,7 +17,7 @@ def mangaPlus():
     urlpage = r'https://mangaplus.shueisha.co.jp/manga_list/all'
     url = 'https://mangaplus.shueisha.co.jp'
     # run firefox webdriver from executable path of your choice
-    driver = webdriver.Firefox(executable_path= r'H:\geckodriver\geckodriver.exe')
+    driver = webdriver.Firefox(executable_path= r'geckodriver/geckodriver.exe')
     # to go web page
     driver.get(urlpage)
 
