@@ -19,7 +19,7 @@ def top10():
     urlpage = r'https://mangaplus.shueisha.co.jp/manga_list/hot'
     url = 'https://mangaplus.shueisha.co.jp'
     # run firefox webdriver from executable path of your choice
-    driver = webdriver.PhantomJS(executable_path=r'H:\phantomjs-2.1.1-windows\bin\phantomjs.exe')
+    driver = webdriver.Firefox(executable_path=r'geckodriver/geckodriver.exe')
     driver.get(urlpage)  # get web page
 
     time.sleep(2)
@@ -46,6 +46,7 @@ def top10():
         else:
             if len(results) != 11:
                 results.append(f'{name}: {url + link}')
+
 
     print(f'--- {time.time() - start_time} seconds ---')
     driver.quit()
