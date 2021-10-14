@@ -30,13 +30,16 @@ def top10():
     top3_mangas = soup.find('div', {'class': 'HotTitles-module_flexContainer_2sQEA'})
     mangas = soup.find('div', {'class': 'HotTitles-module_gridContainer_2jaSS'})
 
+    names = []
+
     for manga in top3_mangas:
-        n_names.append(manga.find('p').text)
+        n_names.append(manga.find('p', {'class':'HotTitle-module_title_3jraN'}).text)
         links_manga.append(manga.get('href'))
 
     for manga in mangas:
-        n_names.append(manga.find('p').text)
+        n_names.append(manga.find('p', {'class':'HotTitle-module_title_3jraN'}).text)
         links_manga.append(manga.get('href'))
+
 
     for name, link in zip(n_names, links_manga):
         if name.lower() in dic_manga:
