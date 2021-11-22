@@ -38,11 +38,11 @@ def mangaPlus():
         else:
             mangaPlus.dic[name] = link
 
-    filepath = os.path.join(r'C:\Users\Marcos Miyashiro\Desktop\teste', 'allMangas_name.txt')
+    filepath = os.path.join(r'C:\******', 'allMangas_name.txt')
     f = open(filepath, 'w', encoding='utf-8')
     f.write(', '.join(f'{k}:{v}' for k, v in mangaPlus.dic.items()))
 
-    filepath = os.path.join(r'C:\Users\Marcos Miyashiro\Desktop\teste', 'names.txt')
+    filepath = os.path.join(r'C:\*****', 'names.txt')
     f = open(filepath, 'w', encoding='utf-8')
     f.write(', '.join(names))
     f.close()
