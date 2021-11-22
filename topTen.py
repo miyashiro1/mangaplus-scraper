@@ -46,7 +46,7 @@ def top10():
             if len(top10.results) != 11:
                 top10.results.append(f'{name}: {url + link}')
 
-    filepath = os.path.join(r'C:\Users\Marcos Miyashiro\Desktop\teste', 'top10.txt')
+    filepath = os.path.join(r'C:*****', 'top10.txt')
     f = open(filepath, 'w', encoding='utf-8')
     f.write(', '.join(top10.results))
     f.close()
