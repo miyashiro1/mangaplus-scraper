@@ -1,22 +1,32 @@
 from discord.ext import commands
-from allMangas import mangaPlus, names, dic
-from topTen import top10, results
 
 """names, final, dic  are global variables from allMangas.py"""
-mangaPlus()
-top10()
 
 bot = commands.Bot(command_prefix='!')
 
+nameLinksRead = open(r'C:\Users\Marcos Miyashiro\Desktop\teste\allMangas_name.txt')
+nameLinksRead = nameLinksRead.read()
+nameLinks = nameLinksRead.split(',')
+
+topRead = open(r'C:\Users\Marcos Miyashiro\Desktop\teste\top10.txt')
+topRead = topRead.read()
+top = topRead.split(',')
+
+namesRead = open(r'C:\Users\Marcos Miyashiro\Desktop\teste\names.txt')
+namesRead = namesRead.read()
+names1 = namesRead.split(',')
+
+@bot.command()
+async def names(ctx):
+    await ctx.send('\n'.join(names1[:50]))
+    await ctx.send('\n'.join(names1[50:]))
 
 @bot.command()
 async def search(ctx, *, message: str):
-    res = []
     try:
-        for key, value in dic.items():
-            if message.lower() in key.lower():
-                res.append(f'{key}: {value}')
-        await ctx.send('\n'.join(res))
+        for item in nameLinks:
+            if message.lower() in item.lower():
+                await ctx.send(item)
     except:
         await ctx.send(f"Error! No manga named {message}. Type !names to see manga titles.")
 
@@ -31,19 +41,16 @@ async def commands(ctx):
 
 @bot.command()
 async def top10(ctx):
-    await ctx.send('\n'.join(results))
+    await ctx.send('\n'.join(top))
 
-@bot.command()
-async def names(ctx):
-    new_names = []
-    for i in dic.keys():
-        new_names.append(i)
-    await ctx.send('\n'.join(new_names))
 
 @bot.event
 async def on_command_error(ctx, error):
     await ctx.send(f'{error}, use **!commands** to see commands.')
 
+print('------ Bot running ------')
+
 if __name__ == '__main__':
     import config
     bot.run(config.token)
+

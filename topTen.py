@@ -1,18 +1,14 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
-
-n_names = []
-results = []
-links_manga = []
-dic_manga = {}
+import os
 
 
 def top10():
-    global n_names
-    global links_manga
-    global dic_manga
-    global results
+    n_names = []
+    links_manga = []
+    dic_manga = {}
+    top10.results = []
 
     start_time = time.time()
     # specify the url
@@ -47,8 +43,13 @@ def top10():
         elif int(link[-6]) == 2:
             continue
         else:
-            if len(results) != 11:
-                results.append(f'{name}: {url + link}')
+            if len(top10.results) != 11:
+                top10.results.append(f'{name}: {url + link}')
+
+    filepath = os.path.join(r'C:\Users\Marcos Miyashiro\Desktop\teste', 'top10.txt')
+    f = open(filepath, 'w', encoding='utf-8')
+    f.write(', '.join(top10.results))
+    f.close()
 
 
     print(f'--- {time.time() - start_time} seconds ---')

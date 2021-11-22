@@ -1,16 +1,11 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import time
-
-links = []
-names = []
-dic = {}
-
+import os
 
 def mangaPlus():
-    global links
-    global names
-    global dic
+    links = []
+    mangaPlus.dic = {}
     start_time = time.time()
 
     ##url to scrape
@@ -18,7 +13,7 @@ def mangaPlus():
     url = 'https://mangaplus.shueisha.co.jp'
     # run firefox webdriver from executable path of your choice
     driver = webdriver.Firefox(executable_path=r'geckodriver/geckodriver.exe')
-    # to go web page
+    # opens firefox and go to urlpage
     driver.get(urlpage)
 
     time.sleep(2)
@@ -41,7 +36,16 @@ def mangaPlus():
         if int(link[-7]) == 2:
             continue
         else:
-            dic[name] = link
+            mangaPlus.dic[name] = link
+
+    filepath = os.path.join(r'C:\Users\Marcos Miyashiro\Desktop\teste', 'allMangas_name.txt')
+    f = open(filepath, 'w', encoding='utf-8')
+    f.write(', '.join(f'{k}:{v}' for k, v in mangaPlus.dic.items()))
+
+    filepath = os.path.join(r'C:\Users\Marcos Miyashiro\Desktop\teste', 'names.txt')
+    f = open(filepath, 'w', encoding='utf-8')
+    f.write(', '.join(names))
+    f.close()
 
     print(f'--- {time.time() - start_time} seconds ---')
     driver.quit()
