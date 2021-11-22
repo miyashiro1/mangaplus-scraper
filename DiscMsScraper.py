@@ -4,15 +4,15 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix='!')
 
-nameLinksRead = open(r'C:\Users\Marcos Miyashiro\Desktop\teste\allMangas_name.txt')
+nameLinksRead = open(r'C:****\allMangas_name.txt')
 nameLinksRead = nameLinksRead.read()
 nameLinks = nameLinksRead.split(',')
 
-topRead = open(r'C:\Users\Marcos Miyashiro\Desktop\teste\top10.txt')
+topRead = open(r'C:\******\top10.txt')
 topRead = topRead.read()
 top = topRead.split(',')
 
-namesRead = open(r'C:\Users\Marcos Miyashiro\Desktop\teste\names.txt')
+namesRead = open(r'C:\*****\names.txt')
 namesRead = namesRead.read()
 names1 = namesRead.split(',')
 
