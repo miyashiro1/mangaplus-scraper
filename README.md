@@ -1,8 +1,6 @@
 # mangaplus-scraper
 A simple discord bot that scrapes MangaPlus and return the link to the manga page.
 
-type !commands to see all the commands.
-
 
 # MangaScraper Bot Link
 Use this link to have the bot on your discord server. (Not online yet)
