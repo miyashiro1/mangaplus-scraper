@@ -14,5 +14,5 @@ We can use !names to check all the mangas from MangapPlus:
 We have !search:
 <br>![](https://i.imgur.com/YMNTbBz.png)</br>
 
-We have !top10:
+and !top10:
 <br>![](https://i.imgur.com/VFPfL51.png)</br>
